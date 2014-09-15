@@ -3,11 +3,29 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Thinkful API Hack</title>
-	<link rel="stylesheet" href="main.css">
+	<link rel="stylesheet" type="text/css" href="main.css">
+	<link rel="stylesheet" type="text/css" href="reset.css">
 	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
-	<script src="app.js"></script>
+	<script src="app.js" type="text/javascript"></script>
 </head>
 <body>
+	<!-- NAVIGATION -->
 	<p>Text text text</p>
-</body>
+    <div id="topbar">
+      <div>Search</div>
+      <input type="text" name="searchtag" placeholder="Search" id="value">
+    </div>
+
+    <!-- CONTAINER FOR DISPLAY CONTENT -->
+    <div id="container">
+
+    	<!-- IMAGES TO DISPLAY -->
+      <div id="output"></div>
+      <br>
+
+    <!-- BUTTONS FOR USER CONTROLS: MORE AND CLEAR -->
+<!-- 		<button id="morepics" class="controlbutton hidden">More</button>
+ -->    <button id="clearall" class="controlbutton hidden">Clear</button>
+    </div> <!--Closing div for container id-->
+  </body>
 </html>
