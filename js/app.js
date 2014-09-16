@@ -12,7 +12,7 @@ $(document).ready(function(){
   function imageLoad() {                      
     tag = $('input').val();
 
-    // Instagram AJAX request and callback
+    // AJAX request and callback
     $.ajax({
       type: "GET",
       dataType: "jsonp",
@@ -23,17 +23,17 @@ $(document).ready(function(){
         'max_tag_id': min
       },
 
-      // Return Instagram image output
-      success: function(images) {
-        min = images.pagination.next_max_tag_id;
-        url = images.pagination.next_url;
+      //Return image output
+      success: function(pic) {
+        min = pic.pagination.next_max_tag_id;
+        url = pic.pagination.next_url;
         $('.controlbutton').removeClass('hidden');
-        console.dir(images);
-        for (var i = 0; i < images.data.length; i++) {
-          likes = images.data[i].likes.count;
+        console.dir(pic);
+        for (var i = 0; i < pic.data.length; i++) {
+          likes = pic.data[i].likes.count;
           console.log(likes);
-          link = images.data[i].link;
-          urlsrc = images.data[i].images.thumbnail.url;
+          link = pic.data[i].link;
+          urlsrc = pic.data[i].images.thumbnail.url;
           $("#output").append("<div id='outputpic'><a target='_blank' href='" + link + "'>" + "</div></div><img src='" + urlsrc + "'></img></div>");
         }  
       }      
