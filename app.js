@@ -34,47 +34,32 @@ $(document).ready(function(){
           console.log(likes);
           link = pic.data[i].link;
           urlsrc = pic.data[i].images.thumbnail.url;
-          $("#output").append("<div id='outputpic'><a target='_blank' href='" + link + "'><div id='heartdiv'><div id='likesdiv'>" + likes + "</div></div><img src='" + urlsrc + "'></img></div>");
+          $("#output").append("<div id='outputpic'><a target='_blank' href='" + link + "'>" + "</div></div><img src='" + urlsrc + "'></img></div>");
         }  
       }      
     });
   }
     
-    // Clear pictures and start new search
-    $('#clearall').on('click', function(){         
-        $('#output').empty();
-        $('.controlbutton').addClass('hidden');
-        $('input').val('');
-        $('input').focus();
-     })
+  // Submit input after delay
+  var timerid;                                     
+  $('input').keyup(function(){
+    clearTimeout(timerid);
+    timerid = setTimeout(function(){
+      imageLoad(); 
+    }, 
+    300);
+  });
 
-    // Clear input value
-    $('input').on('click focusin', function() {      
-        this.value = '';
-    });
-    
-    // Submit input after delay
-    var timerid;                                     
-    $('input').keyup(function(){
-      clearTimeout(timerid);
-      timerid = setTimeout(function(){
-        imageLoad(); 
-      }, 
-      300);
-    });
+  // Clear pictures and start new search
+  $('#clearall').on('click', function(){         
+    $('#output').empty();
+    $('input').val('');
+    $('input').focus();
+  })
+
+  // Clear input value
+  $('input').on('click focusin', function() {      
+      this.value = '';
+  });
 });
 
-
-
-
-
-
-
-
-
-
-// POTENTIAL FURTHER FUNCTIONALITY: 
-//Load more images 
-     // $('#morepics').on('click', function() {         
-     //    loadInstagrams();
-     // })
